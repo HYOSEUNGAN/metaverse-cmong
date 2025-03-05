@@ -1,0 +1,124 @@
+@import url("https://rsms.me/inter/inter.css");
+@import url("https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap");
+
+.product-viewer-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.product-viewer-container canvas {
+  opacity: 0;
+  touch-action: none;
+  animation: fade-in 5s ease 1s forwards;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.branding {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.brand-link {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  font-size: 13px;
+  pointer-events: all;
+  color: black;
+  text-decoration: none;
+}
+
+.date {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  font-size: 13px;
+}
+
+.product-info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  transform: translate3d(-50%, -50%, 0);
+  border-left: 1px solid black;
+  padding-left: 40px;
+  user-select: none;
+  font-family: "Inter", sans-serif;
+}
+
+.product-info ul,
+.product-info li {
+  list-style: none;
+  margin: 0;
+  padding: 0px;
+  display: block;
+  overflow: hidden;
+}
+
+.product-info ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  overflow: hidden;
+}
+
+.product-info p {
+  font-size: 16px;
+  line-height: 1.25em;
+  margin-bottom: 0.2em;
+}
+
+.product-info .accent {
+  -webkit-text-stroke: 1px black;
+  color: transparent;
+}
+
+.product-info .price {
+  display: inline-block;
+  font-family: "Major Mono Display", monospace;
+  background: black;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.product-info h1 {
+  font-family: "Major Mono Display", monospace;
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+
+.product-info h3 {
+  font-weight: 800;
+  font-size: 5em;
+  letter-spacing: -4px;
+  line-height: 1em;
+  margin: 0;
+}
+
+.product-info h4 {
+  font-weight: 300;
+  font-size: 1.15em;
+  letter-spacing: -1px;
+  margin: 10px 0;
+}
