@@ -3,7 +3,7 @@ import { useGLTF, OrbitControls, Environment } from "@react-three/drei";
 import { Suspense } from "react";
 
 // 모델 미리 로드
-useGLTF.preload("/models/chair2.glb");
+useGLTF.preload("/models/chair3.glb");
 
 function Model({ url }) {
   const { scene } = useGLTF(url);
@@ -24,7 +24,7 @@ export default function Chair() {
     <div className="h-[80vh] w-full relative">
       <Canvas>
         <Suspense fallback={<LoadingFallback />}>
-          <Model url="/models/chair2.glb" />
+          <Model url="/models/chair3.glb" />
           <OrbitControls enableZoom={false} />
           <Environment preset="city" />
           <ambientLight intensity={0.5} />
