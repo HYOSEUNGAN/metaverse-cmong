@@ -7,16 +7,20 @@ import Footer from "../components/Footer";
 import sectionsData from "../data/sections";
 import AnimatedHero from "../components/AnimatedHero";
 import ProductViewer3D from "../components/3d/ProductViewer3D";
+import Chair from "../components/3d/Chair";
 
 export default function Home() {
   return (
-    <div className="bg-black text-white">
+    <main
+      id="main-content"
+      className="relative overflow-y-auto h-screen snap-y snap-mandatory"
+    >
       <Header />
 
       {/* <AnimatedHero /> */}
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center snap-start relative overflow-hidden">
+      <section className="min-h-screen flex items-center justify-center bg-gradient-to-b from-black to-blue-900 text-white relative snap-start">
         <video
           autoPlay
           loop
@@ -58,10 +62,45 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Chair 3D 모델 섹션 */}
+      <section className="min-h-screen snap-start relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-black to-blue-900"></div>
+        <div className="relative z-10 pt-20">
+          <h2 className="text-4xl font-bold text-center mb-4">3D 가구 모델</h2>
+          <p className="text-xl text-center text-gray-300 mb-8">
+            메타버스에서 실제 가구를 경험해보세요
+          </p>
+          <Chair />
+          <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex justify-center">
+            <button
+              className="bg-blue-600 hover:bg-blue-700 transition-colors px-8 py-4 rounded-full text-lg font-medium flex items-center gap-2"
+              onClick={() => {
+                document
+                  .querySelector("#content-sections")
+                  .scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              다음 섹션으로
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
       {/* Content Sections */}
-      <div className="snap-y snap-mandatory h-screen overflow-y-scroll">
+      <div id="content-sections">
         {sectionsData.map((section) => (
-          <Section key={section.id} data={section} />
+          <Section key={section.id} data={section} className="snap-start" />
         ))}
       </div>
 
@@ -109,6 +148,6 @@ export default function Home() {
       /> */}
 
       <Footer />
-    </div>
+    </main>
   );
 }

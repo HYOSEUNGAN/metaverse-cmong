@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function Section({ data }) {
+export default function Section({ data, className = "" }) {
   const {
     id,
     title,
@@ -15,7 +15,7 @@ export default function Section({ data }) {
   return (
     <section
       id={id}
-      className="min-h-screen flex items-center justify-center snap-start"
+      className={`min-h-screen flex items-center justify-center ${className}`}
       style={{ backgroundColor, color: textColor }}
     >
       <div className="container mx-auto px-6 py-20">
